@@ -13,6 +13,46 @@ img{
   margin-bottom: 1%;
 }
 
+.contact-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 20px;
+    border: 1px solid #dcdcdc;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* Легкая тень */
+}
+
+.divider-horizontal {
+    height: 1px;
+    background-color: #e0e0e0;
+    margin: 20px 0;
+}
+
+.divider-vertical {
+    width: 2px;
+    background-color: #333333;
+    align-self: stretch; /* Растягиваем линию по всей высоте текста */
+    margin: 0 30px;
+}
+
+.card-bottom {
+    display: flex;
+    align-items: center; /* Центрируем иконку и текст по вертикали */
+}
+
+.card-bottom-left {
+    flex: 1; /* Занимает 1 долю свободного пространства */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-bottom-right {
+    flex: 1; /* Занимает 2 доли (в два раза шире, чем блок с иконкой) */
+    text-align: center;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
 .row{
   display: flex;  
   flex: 1;
@@ -124,3 +164,5 @@ img{
     text-align:center;
     box-shadow: 2px 2px 3px #999;  
 }
+
+
