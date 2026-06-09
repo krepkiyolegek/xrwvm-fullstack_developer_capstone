@@ -37,31 +37,46 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='CarModel',
             fields=[
-                ('id',
-                models.BigAutoField(auto_created=True,
-                    primary_key=True,
-                    serialize=False,
-                    verbose_name='ID')),
-                ('name',
-                models.CharField(max_length=100)),
-                ('dealer_field',
-                models.IntegerField()),
-                ('type',
-                models.CharField(choices=[
-                    ('SEDAN', 'Sedan'),
-                    ('SUV', 'SUV'),
-                    ('WAGON', 'Wagon'),
-                    ('COUPE', 'Coupe')],
-                    default='SUV',
-                    max_length=10)),
-                ('year',
-                models.IntegerField(default=2024,
-                    validators=[
-                        django.core.validators.MaxValueValidator(2026),
-                        django.core.validators.MinValueValidator(2015)])),
-                ('car_make',
-                models.ForeignKey(on_delete=django.db.models.deletion.CASCADE,
-                    to='djangoapp.carmake')),
+                (
+                    'id',
+                    models.BigAutoField(auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name='ID')
+                ),
+                (
+                    'name',
+                    models.CharField(max_length=100)
+                ),
+                (
+                    'dealer_field',
+                    models.IntegerField()
+                ),
+                (
+                    'type',
+                    models.CharField(
+                        choices=[
+                            ('SEDAN', 'Sedan'),
+                            ('SUV', 'SUV'),
+                            ('WAGON', 'Wagon'),
+                            ('COUPE', 'Coupe')],
+                        default='SUV',
+                        max_length=10)
+                ),
+                (
+                    'year',
+                    models.IntegerField(
+                        default=2024,
+                        validators=[
+                            django.core.validators.MaxValueValidator(2026),
+                            django.core.validators.MinValueValidator(2015)])
+                ),
+                (
+                    'car_make',
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        to='djangoapp.carmake')
+                ),
             ],
         ),
     ]
