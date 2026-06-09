@@ -38,24 +38,22 @@ def analyze_review_sentiments(text):
 
     # Правильно кодируем текст (пробелы станут %20), чтобы не ломалась ссылка
     safe_text = urllib.parse.quote(text)
-    
+
     # Собираем URL (с защитой от забытого слэша)
     base_url = sentiment_analyzer_url
     if not base_url.endswith('/'):
         base_url += '/'
-        
+
     request_url = base_url + "analyze/" + safe_text
-    
     # --- ДЕТЕКТИВНЫЙ БЛОК (ПЕЧАТАЕМ ВСЁ В ТЕРМИНАЛ) ---
     print("\n=== ЗАПРОС К ИИ ===")
     print(f"АДРЕС: {request_url}")
-    
+
     try:
         response = requests.get(request_url)
         print(f"СТАТУС КОД: {response.status_code}")
         print(f"ОТВЕТ ИИ: {response.text}")
         print("===================\n")
-        
         return response.json()
     except ImportError as e:
         print(f"КРИТИЧЕСКАЯ ОШИБКА: {e}")
@@ -67,7 +65,7 @@ def analyze_review_sentiments(text):
 def post_review(data_dict):
     request_url = backend_url+"/insert_review"
     try:
-        response = requests.post(request_url,json=data_dict)
+        response = requests.post(request_url, json=data_dict)
         print(response.json())
         return response.json()
     except ImportError:
